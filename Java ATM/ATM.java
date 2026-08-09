@@ -11,6 +11,7 @@ public class ATM {
         int choice = 0;
         int attempts = 0;
         boolean validation = false;
+        boolean checkPin = false;
 
 
 
@@ -36,12 +37,11 @@ public class ATM {
 
         }
 
-
                if(validation){
 
                    do{
                        System.out.println("------BANKING PROGRAM-------");
-                       System.out.print("1. Check Balance\n2. Withdraw Money\n3. Deposit Money\n4. Exit\nChoose an option: ");
+                       System.out.print("1. Check Balance\n2. Withdraw Money\n3. Deposit Money\n4. Change Pin\n5. Exit\nChoose an option: ");
                        choice = sc.nextInt();
 
                        switch(choice){
@@ -55,6 +55,9 @@ public class ATM {
                                balance = depositMoney(balance);
                                break;
                            case 4:
+                               pin = changePin(pin, checkPin);
+                               break;
+                           case 5:
                                System.out.println("Thank you for banking with us!");
                                break;
                            default:
@@ -106,5 +109,27 @@ public class ATM {
         }
         System.out.println("Balance = " + "$" + balance);
         return balance;
+    }
+
+    public int changePin(int pin, boolean checkPin){
+        int enteredPin;
+        int newPin = 0;
+        
+
+        do{
+            System.out.print("Enter current Pin: ");
+            enteredPin = sc.nextInt();
+            if(pin == enteredPin){
+                System.out.print("Enter new Pin: ");
+                newPin = sc.nextInt();
+                pin = newPin;
+                System.out.println("PIN Successfully Changed to " + pin);
+                checkPin = true;
+            }else{
+                System.out.println("Incorrect Pin!");
+            }
+        }while(checkPin = false);
+
+        return newPin;
     }
 }
