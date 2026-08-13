@@ -7,6 +7,7 @@ A console based ATM banking system developed with Java.
 - Check Account Balance
 - Withdraw Money
 - Deposit Money
+- Change PIN
 - Transaction Menu
 - Exit functionality
 
